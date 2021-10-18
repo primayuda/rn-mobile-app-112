@@ -4,9 +4,9 @@
     "slug": "mockup-112-v02",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Logo-white.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Logo-dark.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
