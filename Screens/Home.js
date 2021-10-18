@@ -1,12 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+
+// import Call API
+import call from 'react-native-phone-call';
+
+//Constants
+import Colors from '../constants/Colors';
+
+//Components
+import HelpChoices from '../components/HelpChoices';
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text>Home Screen!!</Text>
-      <StatusBar style="auto" />
+      <StatusBar style='auto' />
+      <HelpChoices />
+    
+      <TouchableOpacity 
+        style={styles.emergencyButton}
+        onPress={() => {
+          const args = {
+            number: '112',
+            prompt: true
+          };
+          call(args).catch(console.error)
+        }}
+      >
+      <Text style={styles.buttonText}>Hubungi 112</Text>
+      </TouchableOpacity>
+      {/* <UserMap /> */}
+      {/* <DisasterNotification /> */}
     </View>
   );
 }
@@ -14,8 +38,21 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  emergencyButton: {
+    padding: 20,
+    marginHorizontal: 10,
+    backgroundColor: Colors.attention,
+    borderWidth: 1,
+    borderColor: Colors.attention,
+    borderRadius: 10,
+  },
+  buttonText: {
+    color: 'white', 
+    fontWeight: 'bold', 
+    fontSize: 24, 
+    textAlign: 'center',
   },
 });
