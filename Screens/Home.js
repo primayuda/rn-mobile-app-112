@@ -10,6 +10,7 @@ import Colors from '../constants/Colors';
 
 //Components
 import HelpChoices from '../components/HelpChoices';
+import DisasterNotification from '../components/DisasterNotification';
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
       <Text style={styles.buttonText}>Hubungi 112</Text>
       </TouchableOpacity>
       {/* <UserMap /> */}
-      {/* <DisasterNotification /> */}
+      <DisasterNotification />
     </View>
   );
 }
