@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "mockup-112-v02",
+    "name": "Mobile App 112",
     "slug": "mockup-112-v02",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/Logo-white.png",
     "splash": {
