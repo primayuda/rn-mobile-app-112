@@ -1,45 +1,88 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Card, Avatar, IconButton } from 'react-native-paper';
 
-const ReportStack = createNativeStackNavigator();
+//Constants
+import Colors from '../constants/Colors';
 
-function PhotoScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Photo Laporan!</Text>
-    </View>
-  );
-}
+const typeOfEmergencies = [
+  {
+    id: '0',
+    icon: require('../assets/noun_disaster.png'),
+    title: 'Bencana Alam'
+  },
+  {
+    id: '1',
+    icon: require('../assets/noun_criminal.png'),
+    title: 'Kejahatan'
+  },
+  {
+    id: '2',
+    icon: require('../assets/noun_Fire.png'),
+    title: 'Kebakaran'
+  },
+  {
+    id: '3',
+    icon: require('../assets/noun_car_crash.png'),
+    title: 'Kecelakaan'
+  },
+  {
+    id: '4',
+    icon: require('../assets/noun_red_cross.png'),
+    title: 'Kejadian Medis'
+  },
 
-function ReportTypeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Report Type screen</Text>
-      <Button
-        title="Photo Laporan"
-        onPress={() => navigation.navigate('Photo')}
-      />
-    </View>
-  );
-}
+]
 
 export default function Report() {
   return (
-    // <ReportStack.Navigator>
-    //   <ReportStack.Screen name="TypeLaporan" component={ReportTypeScreen} />
-    //   <ReportStack.Screen name="Photo" component={PhotoScreen} />
-    // </ReportStack.Navigator>
-    <View><Text>Report Screen</Text></View>
+    <View style={styles.container}>
+      {typeOfEmergencies.map((item) => {
+        return (
+          
+          <Card.Title
+            key={item.id}
+            title={item.title}
+            left={(props) => <Avatar.Icon {...props} icon={item.icon} size={50} color={Colors.foreground} style={styles.cardIcon} />}
+            right={(props) => <IconButton {...props} icon="details" onPress={() => {}} />}
+
+          />
+          
+        )
+      })}
+      <TouchableOpacity style={styles.nextButton}>
+      <Text style={styles.buttonText}>LANJUT</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center', 
+    justifyContent: 'flex-start', 
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    top: 10,
   },
-});
+  cardIcon: {
+    backgroundColor: Colors.background,
+    borderWidth: 1,
+    borderColor: Colors.foreground,
+  },
+  nextButton : {
+    backgroundColor: Colors.attention,
+    padding: 10,
+    width: 300,
+    position: 'absolute',
+    bottom: 40,
+    borderWidth: 1,
+    borderColor: Colors.attention,
+    borderRadius: 20,
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    color: 'white',
+    textAlign: 'center',
+  }
+})
