@@ -20,21 +20,22 @@
       "supportsTablet": true,
       "config": {
         "googleMapsApiKey": "AIzaSyCipcK4h68TgqfMKVc7bfWzdDahb0ZWKtA"
-      },
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "config":{
+      "config": {
         "googleMaps": {
           "apiKey": "AIzaSyCipcK4h68TgqfMKVc7bfWzdDahb0ZWKtA"
         }
-      },
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Prototype Mobile application for 112 Emergency Services in Indonesia.\nDeveloped for PT ADP.\n"
   }
 }
